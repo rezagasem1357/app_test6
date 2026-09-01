@@ -54,9 +54,8 @@ kotlin {
  * استفاده می‌شود.
  */
 dependencies {
-    implementation(
-        "com.google.mediapipe:tasks-vision:latest.release"
-    )
+   implementation("com.google.mediapipe:tasks-vision:latest.release"
+   )
 }
 
 flutter {
