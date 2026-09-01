@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.application")
     id("dev.flutter.flutter-gradle-plugin")
@@ -18,7 +17,7 @@ android {
     defaultConfig {
         applicationId = "com.example.apptest4"
 
-        // Android 7.0 / API 24
+        // Android 7.0+
         minSdk = 24
 
         targetSdk = flutter.targetSdkVersion
@@ -29,7 +28,7 @@ android {
 
     buildTypes {
         release {
-            // فعلاً برای تست
+            // برای تست و Codemagic
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -42,21 +41,24 @@ kotlin {
     }
 }
 
+
 /*
- * Google MediaPipe Tasks
+ * MediaPipe Vision Tasks
  *
- * این کتابخانه برای:
+ * شامل:
  * - Object Detection
- * - Image Embedding
- * - Image Segmentation
- * - سایر قابلیت‌های Vision
+ * - Image processing
+ * - AI Vision
  *
- * استفاده می‌شود.
+ * نسخه ثابت برای جلوگیری از
+ * مشکل dependency و TFLite conflict
  */
 dependencies {
-   implementation("com.google.mediapipe:tasks-vision:latest.release"
-   )
+    implementation(
+        "com.google.mediapipe:tasks-vision:0.10.14"
+    )
 }
+
 
 flutter {
     source = "../.."
